@@ -20,4 +20,4 @@ if __name__ == '__main__':
     schedule.every(10).seconds.do(handle_pe_info_data)
     while True:
         schedule.run_pending()
-        time.sleep(1) #to get less load for CPU
+        time.sleep(1) # to reduce CPU load

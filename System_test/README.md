@@ -44,4 +44,19 @@ InfluxDB will create one, specified in the measurements.
 
 * Finally, the InfluxDBClient is called, and with `write_api` data is sent to the specified bucket .
 
+## Tests Explanation
 
+* `test_extract_sys_metrics` - loads mock JSON file, gets all the values from nested JSON `positioningEngine`,
+and compares with the expected result
+
+* `test_extract_sys_metrics_missing_field` - creating `pos_engine` dictionary with 1 missing field. The expected result
+is a dictionary with missing field set to `None`.
+
+* `test_extract_sys_metrics_empty_pos_engine` - creating an empty `pos_engine` dictionary and passing into a function.
+The expected result is a dictionary with all fields set to `None`.
+
+* `test_get_pos_engine` - test tests function `get_pos_engine` with mock JSON. Then checks if the dictionary returned by
+`get_pos_engine` contains the expected values. Test passes if all the assertions pass.
+
+* `test_get_pos_engine_empty_input` - testing function `get_pos_engine` when the empty dictionary is passed. It checks
+if the result is dictionary and the length of the dictionary is 0.
